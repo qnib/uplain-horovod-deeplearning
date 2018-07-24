@@ -20,10 +20,3 @@ RUN PY=$(echo ${PYTHON_VERSION} | sed s/\\.//); \
         pip install http://download.pytorch.org/whl/cu90/torch-${PYTORCH_VERSION}-cp${PY}-cp${PY}mu-linux_x86_64.whl; \
     fi; \
     pip install torchvision
-
-# Download examples
-RUN apt-get install -y --no-install-recommends subversion && \
-    svn checkout https://github.com/uber/horovod/trunk/examples && \
-    rm -rf /examples/.svn
-
-WORKDIR "/examples"
